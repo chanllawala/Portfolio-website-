@@ -24,7 +24,7 @@ app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'your-app-password
 @app.route('/')
 def index():
     """Main portfolio page"""
-    return render_template('index.html')
+    return send_from_directory('templates', 'index.html')
 
 @app.route('/api/contact', methods=['POST'])
 def contact():
