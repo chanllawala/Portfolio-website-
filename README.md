@@ -31,10 +31,7 @@ GitHub (code hosting)
 
 Render (live hosting)
 
-📁 File Structure
-pgsql
-Copy
-Edit
+
 portfolio/
 ├── index.html
 ├── styles.css
@@ -46,7 +43,7 @@ Clone the repository
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/portfolio.git
+git clone [https://github.com/yourusername/portfolio.git](https://github.com/chanllawala/Portfolio-website-/edit/main/README.md)
 cd portfolio
 Open in browser
 Just double-click index.html
@@ -60,6 +57,7 @@ Connect your repo & deploy.
 Your live site will be ready in minutes.
 
 📞 Contact
-LinkedIn: Kirtan Chanllawala
+LinkedIn: Kirtan Chanllawala ,https://www.linkedin.com/in/kirtan-chanllawala-18b755230/
 
 Email: kchanllawala@gmail.com
+
