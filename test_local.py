@@ -3,11 +3,13 @@
 Simple test script to verify the Flask application works locally
 """
 
-import requests
 import json
 import os
 import sys
-from app import app
+from portfolio import create_app
+
+# Create app instance for testing
+app = create_app()
 
 def test_home_page():
     """Test the home page loads correctly"""
@@ -15,7 +17,7 @@ def test_home_page():
         response = client.get('/')
         assert response.status_code == 200
         assert 'Kirtan Chanllawala' in response.data.decode()
-        print("✅ Home page loads correctly")
+        print("PASS: Home page loads correctly")
 
 def test_health_endpoint():
     """Test the health check endpoint"""
@@ -24,7 +26,7 @@ def test_health_endpoint():
         assert response.status_code == 200
         data = json.loads(response.data)
         assert data['status'] == 'healthy'
-        print("✅ Health endpoint works correctly")
+        print("PASS: Health endpoint works correctly")
 
 def test_contact_form():
     """Test the contact form endpoint"""
@@ -40,10 +42,10 @@ def test_contact_form():
                              data=json.dumps(test_data),
                              content_type='application/json')
         
-        # Should return 200 or 500 (depending on email config)
-        assert response.status_code in [200, 500]
+        # Should return 200, 400, or 500 (depending on validation/email config)
+        assert response.status_code in [200, 400, 500]
         data = json.loads(response.data)
-        print(f"✅ Contact form endpoint responds (status: {response.status_code})")
+        print(f"PASS: Contact form endpoint responds (status: {response.status_code})")
 
 def test_static_files():
     """Test that static files are accessible"""
@@ -52,20 +54,20 @@ def test_static_files():
         response = client.get('/styles.css')
         assert response.status_code == 200
         assert 'text/css' in response.headers.get('Content-Type', '')
-        
+
         # Test JS file
         response = client.get('/script.js')
         assert response.status_code == 200
         assert 'javascript' in response.headers.get('Content-Type', '')
-        
+
         # Test image file
         response = client.get('/IMG-20250625-WA0019.jpg')
         assert response.status_code == 200
-        
-        print("✅ Static files are accessible")
+
+        print("PASS: Static files are accessible")
 
 if __name__ == '__main__':
-    print("🧪 Testing Flask application...")
+    print("Testing Flask application...")
     
     try:
         test_home_page()
@@ -73,7 +75,7 @@ if __name__ == '__main__':
         test_contact_form()
         test_static_files()
         
-        print("\n🎉 All tests passed! Your application is ready for deployment.")
+        print("\nAll tests passed! Your application is ready for deployment.")
         print("\nTo run locally:")
         print("  python app.py")
         print("\nTo deploy to Render:")
@@ -83,5 +85,5 @@ if __name__ == '__main__':
         print("  4. Deploy!")
         
     except Exception as e:
-        print(f"\n❌ Test failed: {str(e)}")
+        print(f"\nTest failed: {str(e)}")
         sys.exit(1) 

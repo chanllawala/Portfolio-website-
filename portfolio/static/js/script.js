@@ -111,22 +111,14 @@ function initializeSmoothScrolling() {
 // ANIMATIONS INITIALIZATION
 // ==========================
 function initializeAnimations() {
-  // Initialize AOS
-  if (typeof AOS !== 'undefined') {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-in-out',
-      offset: 100,
-      delay: 0
-    });
-  }
-  
-  // Initialize GSAP animations
+  // Initialize GSAP animations (primary animation system)
   if (typeof gsap !== 'undefined') {
     initializeGSAPAnimations();
+    console.log('GSAP animations initialized successfully');
+  } else {
+    console.log('GSAP not available, falling back to CSS animations');
   }
-  
+
   // Initialize typing animation
   initializeTypingAnimation();
 }
@@ -190,18 +182,21 @@ function initializeFloatingAnimations() {
 // PROJECT HOVER EFFECTS
 // ==========================
 function initializeProjectHoverEffects() {
+  // Project cards hover effects
   document.querySelectorAll(".project-card").forEach(card => {
     card.addEventListener("mouseenter", () => {
-      gsap.to(card, { 
-        boxShadow: "0 0 25px rgba(0, 247, 255, 0.4)", 
-        duration: 0.4 
+      gsap.to(card, {
+        scale: 1.05,
+        duration: 0.3,
+        ease: "power2.out"
       });
     });
     
     card.addEventListener("mouseleave", () => {
-      gsap.to(card, { 
-        boxShadow: "0 0 0px transparent", 
-        duration: 0.4 
+      gsap.to(card, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out"
       });
     });
   });
@@ -231,32 +226,24 @@ function initializeTimelineAnimations() {
 // SKILLS ANIMATIONS
 // ==========================
 function initializeSkills() {
-  const skillBars = document.querySelectorAll('.skill-bar');
-  
-  const observerOptions = {
-    threshold: 0.5,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const skillBar = entry.target;
-        const width = skillBar.getAttribute('data-width');
-        
-        gsap.to(skillBar, {
-          width: `${width}%`,
-          duration: 1.5,
-          ease: "power2.out"
-        });
-        
-        skillObserver.unobserve(skillBar);
-      }
+  const skillCards = document.querySelectorAll('.skill-card');
+
+  skillCards.forEach(card => {
+    // Add subtle hover animation
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        scale: 1.05,
+        duration: 0.3,
+        ease: "power2.out"
+      });
     });
-  }, observerOptions);
-  
-  skillBars.forEach(bar => {
-    skillObserver.observe(bar);
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
   });
 }
 
@@ -266,11 +253,11 @@ function initializeSkills() {
 function initializeTypingAnimation() {
   const heroTitle = document.querySelector('.hero-title');
   if (!heroTitle) return;
-  
+
   const originalText = heroTitle.textContent;
   const typingSpeed = 80;
   let i = 0;
-  
+
   function typeWriter() {
     if (i < originalText.length) {
       heroTitle.textContent = originalText.substring(0, i + 1);
@@ -278,7 +265,7 @@ function initializeTypingAnimation() {
       setTimeout(typeWriter, typingSpeed);
     }
   }
-  
+
   // Start typing animation after a delay
   setTimeout(typeWriter, 1000);
 }
@@ -562,14 +549,46 @@ function initializeLazyLoading() {
       }
     });
   });
-  
-  images.forEach(img => imageObserver.observe(img));
 }
 
-// Initialize lazy loading when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeLazyLoading);
-} else {
-  initializeLazyLoading();
-}
-  
+// Initialize AOS animations
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize AOS with proper settings
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100,
+      disable: 'mobile' // Disable on mobile to prevent issues
+    });
+  }
+
+  // Clean up any percentage indicators in skills
+  const skillCards = document.querySelectorAll('.skill-card');
+  skillCards.forEach(card => {
+    // Remove any text that contains percentages
+    const skillName = card.querySelector('.skill-name');
+    if (skillName) {
+      let text = skillName.textContent;
+      // Remove any percentage patterns like "80%", "90%", etc.
+      text = text.replace(/\d+%/, '').trim();
+      skillName.textContent = text;
+    }
+  });
+
+  // Force refresh AOS animations after cleanup
+  if (typeof AOS !== 'undefined') {
+    AOS.refresh();
+  }
+
+  // Debug: Log project cards to ensure they're loading
+  const projectCards = document.querySelectorAll('.project-card');
+  console.log('Found', projectCards.length, 'project cards');
+  projectCards.forEach((card, index) => {
+    const title = card.querySelector('h3');
+    if (title) {
+      console.log(`Project ${index + 1}: ${title.textContent}`);
+    }
+  });
+});}

@@ -24,12 +24,12 @@
   <meta property="twitter:image" content="https://kirtanchanllawala.com/og-image.jpg" />
   
   <!-- Preload critical resources -->
-  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="{{ url_for('static', filename='css/styles.css') }}" as="style">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style">
   
   <title>Kirtan Chanllawala | Computer Science Graduate & Developer</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/favicon.svg') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=2" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   
   <!-- Structured Data for SEO -->
@@ -46,16 +46,16 @@
     "knowsAbout": [
       "Python Programming",
       "Java Development", 
+      "JavaScript Development",
       "C++ Programming",
-      "Machine Learning",
-      "Mobile Development",
-      "Game Development",
+      "SQL Databases",
       "Web Development",
-      "Data Analysis",
-      "System Programming",
-      "JavaScript",
-      "React",
-      "Flask"
+      "React Development",
+      "Flask Framework",
+      "Node.js Development",
+      "Git Version Control",
+      "Docker Containerization",
+      "Machine Learning"
     ],
     "url": "https://kirtanchanllawala.com",
     "sameAs": [
@@ -74,7 +74,6 @@
     <nav class="nav container" role="navigation" aria-label="Main navigation">
       <h1 class="logo">
         <a href="#hero" aria-label="Kirtan Chanllawala - Home">Kirtan<span>Chanllawala</span></a>
-      </h1>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span>
         <span></span>
@@ -86,6 +85,7 @@
         <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
         <li role="none"><a href="#education" role="menuitem">Education</a></li>
         <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#freelance" role="menuitem">Freelance</a></li>
         <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
       </ul>
     </nav>
@@ -135,126 +135,88 @@
     <h2 class="section-title">Skills & Technologies</h2>
     <div class="skills-content">
       <div class="skills-category">
-        <h3>Programming Languages</h3>
+        <h3>Core Programming</h3>
         <div class="skills-grid">
           <div class="skill-card" data-skill="Python">
             <div class="skill-info">
               <span class="skill-name">Python</span>
-              <span class="skill-level">90%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="90"></div>
             </div>
           </div>
           <div class="skill-card" data-skill="Java">
             <div class="skill-info">
               <span class="skill-name">Java</span>
-              <span class="skill-level">85%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="85"></div>
-            </div>
-          </div>
-          <div class="skill-card" data-skill="C++">
-            <div class="skill-info">
-              <span class="skill-name">C++</span>
-              <span class="skill-level">80%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="80"></div>
             </div>
           </div>
           <div class="skill-card" data-skill="JavaScript">
             <div class="skill-info">
               <span class="skill-name">JavaScript</span>
-              <span class="skill-level">85%</span>
             </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="85"></div>
+          </div>
+          <div class="skill-card" data-skill="C++">
+            <div class="skill-info">
+              <span class="skill-name">C++</span>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="SQL">
+            <div class="skill-info">
+              <span class="skill-name">SQL</span>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div class="skills-category">
         <h3>Web Development</h3>
         <div class="skills-grid">
           <div class="skill-card" data-skill="HTML">
             <div class="skill-info">
               <span class="skill-name">HTML5</span>
-              <span class="skill-level">95%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="95"></div>
             </div>
           </div>
           <div class="skill-card" data-skill="CSS">
             <div class="skill-info">
               <span class="skill-name">CSS3</span>
-              <span class="skill-level">90%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="90"></div>
             </div>
           </div>
           <div class="skill-card" data-skill="React">
             <div class="skill-info">
               <span class="skill-name">React</span>
-              <span class="skill-level">80%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="80"></div>
             </div>
           </div>
           <div class="skill-card" data-skill="Flask">
             <div class="skill-info">
               <span class="skill-name">Flask</span>
-              <span class="skill-level">75%</span>
             </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="75"></div>
+          </div>
+          <div class="skill-card" data-skill="Node.js">
+            <div class="skill-info">
+              <span class="skill-name">Node.js</span>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div class="skills-category">
-        <h3>Specialized Technologies</h3>
+        <h3>Tools & Technologies</h3>
         <div class="skills-grid">
-          <div class="skill-card" data-skill="Machine Learning">
-            <div class="skill-info">
-              <span class="skill-name">Machine Learning</span>
-              <span class="skill-level">80%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="80"></div>
-            </div>
-          </div>
-          <div class="skill-card" data-skill="Mobile Development">
-            <div class="skill-info">
-              <span class="skill-name">Mobile App Development</span>
-              <span class="skill-level">75%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="75"></div>
-            </div>
-          </div>
-          <div class="skill-card" data-skill="Game Development">
-            <div class="skill-info">
-              <span class="skill-name">Game Development</span>
-              <span class="skill-level">70%</span>
-            </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="70"></div>
-            </div>
-          </div>
           <div class="skill-card" data-skill="Git">
             <div class="skill-info">
               <span class="skill-name">Git & GitHub</span>
-              <span class="skill-level">85%</span>
             </div>
-            <div class="skill-progress">
-              <div class="skill-bar" data-width="85"></div>
+          </div>
+          <div class="skill-card" data-skill="VS Code">
+            <div class="skill-info">
+              <span class="skill-name">VS Code</span>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="Docker">
+            <div class="skill-info">
+              <span class="skill-name">Docker</span>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="Machine Learning">
+            <div class="skill-info">
+              <span class="skill-name">Machine Learning</span>
             </div>
           </div>
         </div>
@@ -264,17 +226,66 @@
 
   <!-- EXPERIENCE -->
   <section id="experience" class="experience container">
-    <h2 class="section-title">Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Customer Service Representative - Bill Gosling Outsourcing</h3>
-        <span>Mar 2022 – Mar 2025</span>
-        <p>Handled 50+ calls daily, resolved billing queries, maintained CRM records...</p>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="experience-content">
+      <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="experience-header">
+          <div class="experience-icon">
+            <span>📞</span>
+          </div>
+          <div class="experience-info">
+            <h3>Customer Service Representative</h3>
+            <p class="company">Bill Gosling Outsourcing (Castle Water), Glasgow</p>
+            <p class="duration">March 2022 – March 2025</p>
+          </div>
+        </div>
+        <div class="experience-description">
+          <p>Delivered clear, professional support to utility customers, handling over 50 calls daily while maintaining exceptional service standards.</p>
+          <div class="experience-tech">
+            <h4>Technologies Used:</h4>
+            <div class="tech-badges">
+              <span class="tech-badge">C#</span>
+              <span class="tech-badge">.NET</span>
+              <span class="tech-badge">ASP.NET</span>
+              <span class="tech-badge">MVC</span>
+              <span class="tech-badge">Web API</span>
+              <span class="tech-badge">T-SQL</span>
+              <span class="tech-badge">SQL Server</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">React</span>
+            </div>
+          </div>
+          <h4>Key Achievements:</h4>
+          <ul class="experience-details">
+            <li>Resolved billing queries, explained account charges, and arranged payment plans with empathy and accuracy</li>
+            <li>Maintained up-to-date customer records using CRM software to ensure transparency and continuity of service</li>
+            <li>Achieved performance targets consistently, including call resolution and customer satisfaction scores</li>
+            <li>Handled complex technical issues and provided solutions using modern web technologies</li>
+          </ul>
+        </div>
       </div>
-      <div class="timeline-item">
-        <h3>Customer Support Assistant - Kalavati Fulchand</h3>
-        <span>Jan 2019 – Dec 2020</span>
-        <p>Delivered in-person customer service, supported daily operations...</p>
+      
+      <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="experience-header">
+          <div class="experience-icon">
+            <span>👥</span>
+          </div>
+          <div class="experience-info">
+            <h3>Customer Support Assistant</h3>
+            <p class="company">Kalavati Fulchand, Dilip Dighe, Ahmedabad, India</p>
+            <p class="duration">January 2019 – December 2020</p>
+          </div>
+        </div>
+        <div class="experience-description">
+          <p>Delivered face-to-face customer service, handling requests and promoting a welcoming, customer-focused environment.</p>
+          <h4>Key Responsibilities:</h4>
+          <ul class="experience-details">
+            <li>Supported daily operations with minor cash handling, accurate service coordination, and clear communication</li>
+            <li>Maintained cleanliness, upheld security standards, and ensured consistent guest satisfaction</li>
+            <li>Provided exceptional in-person customer service experiences with attention to detail</li>
+            <li>Assisted in training new team members and contributed to process improvements</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -298,7 +309,7 @@
           Completed my Computer Science degree at the University of Stirling, gaining comprehensive knowledge in web development, software engineering, and interactive systems. The program provided hands-on experience with modern technologies and real-world project development.
         </p>
         <div class="graduation-photo">
-          <img src="IMG-20250625-WA0019.jpg" alt="Kirtan Chanllawala - University of Stirling Graduation" class="graduation-image">
+          <img src="{{ url_for('static', filename='img/IMG-20250625-WA0019.jpg') }}" alt="Kirtan Chanllawala - University of Stirling Graduation" class="graduation-image">
           <p class="photo-caption">Graduation Day at University of Stirling</p>
         </div>
       </div>
@@ -307,7 +318,7 @@
 
   <!-- PROJECTS -->
   <section id="projects" class="projects container">
-    <h2 class="section-title">University Projects</h2>
+    <h2 class="section-title">Projects & Academic Work</h2>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image">
@@ -408,6 +419,47 @@
     </div>
   </section>
 
+  <!-- FREELANCE WORK -->
+  <section id="freelance" class="freelance container">
+    <h2 class="section-title">Freelance Work</h2>
+    <div class="freelance-grid">
+      <div class="freelance-card">
+        <div class="freelance-image">
+          <div class="freelance-placeholder">🍽️</div>
+        </div>
+        <h3>Gurkha Lounge Stirling - Restaurant Website</h3>
+        <p>Developed a professional restaurant website and application for Gurkha Lounge Stirling. Features include responsive design, online menu display, contact information, and modern UI/UX for an authentic Nepalese and Indian dining experience.</p>
+        <div class="freelance-tech">
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Responsive Design</span>
+        </div>
+        <div class="freelance-links">
+          <a href="https://www.gurkhaloungestirling.co.uk/index.html#home" target="_blank" class="freelance-link">View Live Site</a>
+          <a href="#" class="freelance-link">Source Code</a>
+        </div>
+      </div>
+      <div class="freelance-card">
+        <div class="freelance-image">
+          <div class="freelance-placeholder">🕉️</div>
+        </div>
+        <h3>Kamdhenu Reiki & Jyotish - Spiritual Services</h3>
+        <p>Created a professional website for Kamdhenu Reiki and Jyotish services. Features include service descriptions, practitioner information, booking system, and serene UI design that reflects the spiritual and healing nature of Reiki and astrological services.</p>
+        <div class="freelance-tech">
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Responsive Design</span>
+        </div>
+        <div class="freelance-links">
+          <a href="https://kamdhenureikiandjyotishs.netlify.app/" target="_blank" class="freelance-link">View Live Site</a>
+          <a href="#" class="freelance-link">Source Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="contact container">
     <h2 class="section-title">Contact</h2>
@@ -481,6 +533,7 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#freelance">Freelance</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -508,9 +561,14 @@
 <!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<!-- Your Script -->
-<script src="script.js"></script>
-
-  <script src="script.js"></script>
+  <script>
+    // Check for freelance section
+    document.addEventListener('DOMContentLoaded', function() {
+      const freelanceSection = document.getElementById('freelance');
+      if (freelanceSection) {
+        console.log('Freelance section loaded successfully');
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error - Kirtan Chanllawala</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .error-content {
+            max-width: 600px;
+        }
+        .error-title {
+            font-size: 6rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .error-subtitle {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .error-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-page">
+            <div class="error-content">
+                <h1 class="error-title">500</h1>
+                <h2 class="error-subtitle">Server Error</h2>
+                <p class="error-message">
+                    Something went wrong on our end. Please try again later.
+                </p>
+                <div class="error-actions">
+                    <a href="{{ url_for('main.index') }}" class="btn-primary">Go Home</a>
+                    <a href="{{ url_for('main.index') }}#contact" class="btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

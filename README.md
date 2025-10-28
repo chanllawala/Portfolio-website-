@@ -11,9 +11,24 @@ A modern, responsive portfolio website with a Flask backend, showcasing my skill
 - **🎨 Modern Animations** - GSAP-powered smooth animations and transitions
 - **📊 Interactive Skills** - Animated progress bars and skill categories
 - **📝 Working Contact Form** - Real backend integration with email notifications
+- **🔒 Security Enhanced** - Rate limiting, input validation, and secure configuration
+- **📧 Email Functionality** - Contact form sends emails to your inbox
 - **🌐 Social Integration** - Prominent LinkedIn integration
 - **🎓 Education Showcase** - University of Stirling graduation highlights
-- **📧 Email Functionality** - Contact form sends emails to your inbox
+- **📈 Application Monitoring** - Health checks and logging
+- **🔧 Development Tools** - Testing suite and development configuration
+
+## 🚀 Recent Improvements
+
+- **Enhanced Backend Architecture** - Modular Flask application with blueprints
+- **Rate Limiting** - Protection against spam and abuse (5 requests/hour for contact form)
+- **Email Validation** - Professional email validation with error handling
+- **Configuration Management** - Environment-based configuration with validation
+- **Error Handling** - Custom 404/500 error pages with proper logging
+- **Contact Persistence** - Optional saving of contact submissions to JSON files
+- **API Endpoints** - Additional endpoints for configuration and statistics
+- **Logging System** - Comprehensive logging with file rotation and different levels
+- **Development/Production Modes** - Different configurations for different environments
 
 ## 🛠️ Technical Stack
 
@@ -26,7 +41,9 @@ A modern, responsive portfolio website with a Flask backend, showcasing my skill
 - **Intersection Observer** - Performance-optimized scroll effects
 
 ### Backend
-- **Python Flask** - Lightweight web framework
+- **Python Flask** - Lightweight web framework with modular architecture
+- **Flask-Limiter** - Rate limiting for API protection
+- **Email-Validator** - Professional email validation
 - **Gunicorn** - Production WSGI server
 - **SMTP** - Email functionality for contact form
 - **Render** - Free hosting platform
@@ -35,24 +52,36 @@ A modern, responsive portfolio website with a Flask backend, showcasing my skill
 
 ```
 Portfolio website/
-├── app.py                 # Flask backend application
-├── requirements.txt       # Python dependencies
-├── render.yaml           # Render deployment configuration
-├── templates/
-│   └── index.html        # Main HTML template
-├── styles.css            # CSS with CSS variables and responsive design
-├── script.js             # Modular JavaScript with backend integration
-├── favicon.svg           # Custom SVG favicon
-├── IMG-20250625-WA0019.jpg # University of Stirling graduation photo
-├── .gitignore            # Git ignore file
-├── DEPLOYMENT.md         # Detailed deployment instructions
-└── README.md             # Project documentation
+├── app.py                    # Main Flask application entry point
+├── portfolio/                # Main application package
+│   ├── __init__.py          # Application factory and configuration
+│   ├── routes.py            # Route definitions and API endpoints
+│   ├── static/              # Static assets (CSS, JS, images)
+│   │   ├── css/
+│   │   │   └── styles.css   # Main stylesheet
+│   │   ├── js/
+│   │   │   └── script.js    # Frontend JavaScript
+│   │   └── img/             # Images and media files
+│   └── templates/           # Jinja2 templates
+│       ├── index.html       # Main portfolio page
+│       └── errors/          # Error page templates
+│           ├── 404.html     # Not found page
+│           └── 500.html     # Server error page
+├── config.py                # Configuration management
+├── requirements.txt         # Python dependencies
+├── render.yaml              # Render deployment configuration
+├── .env                     # Environment variables (not in git)
+├── logs/                    # Application logs (created at runtime)
+├── submissions/             # Contact form submissions (created at runtime)
+├── test_local.py            # Local testing suite
+├── .gitignore               # Git ignore file
+└── README.md                # Project documentation
 ```
 
 ## 🚀 Quick Deployment
 
 ### Option 1: Deploy to Render (Recommended)
-
+{{ ... }}
 1. **Push to GitHub:**
    ```bash
    git init
